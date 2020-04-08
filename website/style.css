@@ -1,0 +1,86 @@
+html {
+    background-color: #d6eef8;
+}
+
+.entry {
+    display: flex;
+    flex-direction: row;
+}
+
+.warmTemp {
+    height: 60%;
+    width: auto;
+    margin-top: 2em;
+}
+
+.myInput { 
+    max-width: 34em;
+}
+
+#generate {
+    background-color: gray;
+    color: white;
+    max-width: 15em;
+    margin-top: 2em;
+    padding: 1em;
+    font-size: 1.5em;
+    font-family: 'Titillium Web';
+}
+
+.feel {
+    display: flex;
+    flex-direction: column;
+}
+
+.holder {
+    margin-top: 2em; 
+}
+
+#app {
+    width: 70%;
+    margin: 0 auto;
+    background-color: #f7f7f7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.infoHolder {
+    display: flex;
+    flex-direction: row;
+    margin: 1em;
+    align-items: center;
+}
+
+#temp, #date, #content, #name{
+    padding: 0.5em;
+}
+
+h2 {
+    margin: 0;
+}
+
+.zip {
+    display: flex;
+    justify-content: flex-start;
+    width: 20em;
+    margin: 0 auto;
+}
+
+#zip {
+    margin-left: 1em;
+}
+
+.weatherTop {
+    margin-bottom: 2em;
+}
+
+html {
+    font-family: 'Titillium Web';
+}
+
+@media only screen and (max-width: 800px){
+    #app {
+        width: 100%;
+    }
+}
