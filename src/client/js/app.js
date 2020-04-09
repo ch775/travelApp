@@ -1,46 +1,43 @@
 /* Global Variables */
-let baseURL = 'api.openweathermap.org/data/2.5/weather?zip='
-const apiKey = '&appid=39067274dbce3644a3b8ef7c8c34939b';
-const imperial = '&units=imperial'
+//let baseURL = 'api.openweathermap.org/data/2.5/weather?zip='
+let baseURL = 'http://api.geonames.org/searchJSON?q='
+const apiKey = '&username=ch3b3ts';
+//const imperial = '&units=imperial'
 
 
 function performAction(e){
-const newZip =  document.getElementById('zip').value;
-getZip(baseURL,newZip, apiKey)
+const newCity =  document.getElementById('city').value;
+getCity(baseURL,newCity, apiKey)
 
 .then(
     updateUI()
   )
 }
-const getZip = async (baseURL, zip, key)=>{
+const getCity = async (baseURL, city, key)=>{
 
-  const res = await fetch('https://api.openweathermap.org/data/2.5/weather?zip='+zip+key+imperial)
+  const res = await fetch('http://api.geonames.org/searchJSON?q='+city+key)
   try {
 
     const data = await res.json();
   
-    console.log(data);
+    //console.log(geomames[""0""].countryName);
+    console.log(data.geonames[0])
+    
 
-    //This is getting the name from the data 
-    let name = data.name;
+    //This is getting the country name from the data 
+    let country = data.geonames[0].countryName;
     //This adds the name  to the answer div
-    document.getElementById('name').innerHTML = name;
+    document.getElementById('country').innerHTML = country;
 
     //This is getting the temp from the data 
-    let temp = data.main.temp;
+    let long = data.geonames[0].lng;
     //This adds the temp to the answer div
-    document.getElementById('temp').innerHTML = temp;
+    document.getElementById('long').innerHTML = long;
 
     //This is getting the value from the input box feelings
-    const feelings =  document.getElementById('feelings').value;
+    const lat =  data.geonames[0].lat;
     //This is adding the input to the answer div
-    document.getElementById('content').innerHTML = feelings;
-
-    // Create a new date instance dynamically with JS
-    let d = new Date();
-     let newDate = d.getMonth()+1+'.'+ d.getDate()+'.'+ d.getFullYear();
-    //This is adding the date to the answer div
-    document.getElementById('date').innerHTML = newDate;
+    document.getElementById('lat').innerHTML = lat;
 
 
     return data;

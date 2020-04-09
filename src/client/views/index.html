@@ -9,37 +9,34 @@
         <body>
             <div id = "app">
                 <h1 class ="holder headline">Travel App</h1>
-                <img class="weatherTop" src="../media/weather.png" alt="Weather doodles of sun, snow and rain">
-                <div class ="holder zip">
-                    <label for="zip">Where Would You Like to Go?</label>
-                    <input type="text" id="zip" placeholder="enter city name here">
+                <!--<img class="weatherTop" src="../media/weather.png" alt="Weather doodles of sun, snow and rain">-->
+                <div class ="holder city">
+                    <label for="city">Where Would You Like to Go?</label>
+                    <input type="text" id="city" placeholder="enter city name here">
                 </div>
                 <div class ="holder feel">
-                    <label for="feelings">How are you feeling today?</label>
-                    <textarea class= "myInput" id="feelings" placeholder="Enter your feelings here" rows="9" cols="50"></textarea>
+                    <!--<label for="feelings">How are you feeling today?</label>
+                    <textarea class= "myInput" id="feelings" placeholder="Enter your feelings here" rows="9" cols="50"></textarea>-->
                     <a href="#jumpHere">
                       <button id="generate" type = "submit"> Get My Travel Info! </button>
                     </a>
                 </div>
                 <div class ="holder entry">
-                  <img class="warmTemp" src="../media/warmTemp.png" alt="Warm tempurature icon">
+                 <!-- <img class="warmTemp" src="../media/warmTemp.png" alt="Warm tempurature icon">-->
                     <div id = "entryHolder">
                        <div id="jumpHere" class = "title">Information About My Destination:</div>
+                       <!--We want to get latitude, longitude, country-->
                            <div class="infoHolder">
-                               <h2>Temp:</h2>
-                               <div id = "temp"></div>
+                               <h2>Country:</h2>
+                               <div id = "country"></div>
                            </div>
                            <div class="infoHolder">
-                               <h2>Date:</h2>
-                               <div id = "date"></div>
+                                <h2>Latitude:</h2>
+                                <div id = "lat"></div>
                            </div>
                            <div class="infoHolder">
-                                <h2>Feelings:</h2>
-                                <div id = "content"></div>
-                           </div>
-                           <div class="infoHolder">
-                                <h2>City:</h2>
-                                <div id = "name"></div>
+                                <h2>Longitude:</h2>
+                                <div id = "long"></div>
                            </div>
                     </div>
                 </div>
