@@ -2,29 +2,29 @@
     <html>
         <head>
             <meta charset="UTF-8">
-            <title>Weather App</title>
+            <title>Travel App</title>
             <link rel="stylesheet" href="style.css">
             <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet">
         </head>
         <body>
             <div id = "app">
-                <h1 class ="holder headline">Weather Journal App</h1>
-                <img class="weatherTop" src="img/weather.png" alt="Weather doodles of sun, snow and rain">
+                <h1 class ="holder headline">Travel App</h1>
+                <img class="weatherTop" src="../media/weather.png" alt="Weather doodles of sun, snow and rain">
                 <div class ="holder zip">
-                    <label for="zip">Enter Zipcode here</label>
-                    <input type="text" id="zip" placeholder="enter zip code here">
+                    <label for="zip">Where Would You Like to Go?</label>
+                    <input type="text" id="zip" placeholder="enter city name here">
                 </div>
                 <div class ="holder feel">
                     <label for="feelings">How are you feeling today?</label>
                     <textarea class= "myInput" id="feelings" placeholder="Enter your feelings here" rows="9" cols="50"></textarea>
                     <a href="#jumpHere">
-                      <button id="generate" type = "submit"> Get My Weather Info! </button>
+                      <button id="generate" type = "submit"> Get My Travel Info! </button>
                     </a>
                 </div>
                 <div class ="holder entry">
-                  <img class="warmTemp" src="img/warmTemp.png" alt="Warm tempurature icon">
+                  <img class="warmTemp" src="../media/warmTemp.png" alt="Warm tempurature icon">
                     <div id = "entryHolder">
-                       <div id="jumpHere" class = "title">Most Recent Entry</div>
+                       <div id="jumpHere" class = "title">Information About My Destination:</div>
                            <div class="infoHolder">
                                <h2>Temp:</h2>
                                <div id = "temp"></div>
