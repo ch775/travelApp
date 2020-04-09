@@ -4,8 +4,6 @@ const apiKey = '&appid=39067274dbce3644a3b8ef7c8c34939b';
 const imperial = '&units=imperial'
 
 
-document.getElementById('generate').addEventListener('click', performAction);
-
 function performAction(e){
 const newZip =  document.getElementById('zip').value;
 getZip(baseURL,newZip, apiKey)
@@ -53,3 +51,4 @@ const getZip = async (baseURL, zip, key)=>{
 }
 
 
+export { performAction }
