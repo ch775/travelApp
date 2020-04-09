@@ -34,6 +34,8 @@ html {
 
 .holder {
     margin-top: 2em; 
+    display: flex;
+    flex-direction: column;
 }
 
 #app {
@@ -58,17 +60,7 @@ html {
 
 h2 {
     margin: 0;
-}
-
-.city {
-    display: flex;
-    justify-content: flex-start;
-    width: 20em;
-    margin: 0 auto;
-}
-
-#city {
-    margin-left: 1em;
+    padding-right: 10px;
 }
 
 .weatherTop {

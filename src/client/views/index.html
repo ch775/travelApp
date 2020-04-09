@@ -10,9 +10,11 @@
             <div id = "app">
                 <h1 class ="holder headline">Travel App</h1>
                 <!--<img class="weatherTop" src="../media/weather.png" alt="Weather doodles of sun, snow and rain">-->
-                <div class ="holder city">
+                <div class ="holder">
                     <label for="city">Where Would You Like to Go?</label>
                     <input type="text" id="city" placeholder="enter city name here">
+                    <label for="city">When Would You Like to Be There?</label>
+                    <input type="date" id="date" placeholder="enter vacation date">
                 </div>
                 <div class ="holder feel">
                     <!--<label for="feelings">How are you feeling today?</label>
@@ -38,6 +40,10 @@
                                 <h2>Longitude:</h2>
                                 <div id = "long"></div>
                            </div>
+                           <div class="infoHolder">
+                            <h2>Days Until Your Trip:</h2>
+                            <div id = "daysAway"></div>
+                       </div>
                     </div>
                 </div>
             </div>
