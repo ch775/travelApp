@@ -1,25 +1,43 @@
 {
-  "name": "weatherapp",
+  "name": "travelapp",
   "version": "1.0.0",
-  "description": "weather app",
-  "main": "server.js",
+  "description": "This is a travel app that allows you to get information on your destination based on your desired trip date.",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node src/server/server.js",
+    "build-prod": "webpack --config webpack.prod.js",
+    "build-dev": "webpack-dev-server  --config webpack.dev.js --open"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ch775/weatherApp.git"
+    "url": "git+https://github.com/ch775/travelApp.git"
   },
   "author": "Christina Hebets",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ch775/weatherApp/issues"
-  },
-  "homepage": "https://github.com/ch775/weatherApp#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.5.1",
+    "file": "^0.2.2",
+    "html": "^1.0.0",
+    "html-webpack-plugin": "^4.1.0",
+    "loader": "^2.1.1",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.13.1",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.1.3",
+    "webpack-dev-server": "^3.10.3",
+    "workbox-webpack-plugin": "^5.1.2"
   }
 }
