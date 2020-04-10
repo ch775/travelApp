@@ -1,8 +1,9 @@
-/* Global Variables */
-//let baseURL = 'api.openweathermap.org/data/2.5/weather?zip='
+/* Global Variables for GeoNames*/
 let baseURL = 'http://api.geonames.org/searchJSON?q='
 const apiKey = '&username=ch3b3ts';
-//const imperial = '&units=imperial'
+/* Global Variables for Weatherbit*/
+let baseURLweather = 'https://api.weatherbit.io/v2.0/history/daily?'
+const apiKeyWeather = 'b6622d7bbf6843c1b92e82c0c44cc8a9';
 
 
 function performAction(e){
@@ -20,8 +21,14 @@ const getCity = async (baseURL, city, key)=>{
 
     const data = await res.json();
   
-    //This is getting the value from the input box for the date
+    //This is getting the value from the input box for the start date
     const vacaDate =  document.getElementById('date').value;
+
+    //This is getting the value from the input box for the end date
+    const vacaDateEnd =  document.getElementById('dateEnd').value;
+    console.log(vacaDate);
+    console.log(vacaDateEnd);
+
 
     // Create a new date instance dynamically with JS
      let d = new Date();
@@ -72,5 +79,34 @@ const getCity = async (baseURL, city, key)=>{
   }
 }
 
+/*This is the function for the Weatherbit API*/ 
+function performActionWeather(e){
+  const newLat =  document.getElementById('lat').value;
+  const newLong =  document.getElementById('long').value;
+  const newStartDate =  document.getElementById('date').value;
+  const newEndDate =  document.getElementById('dateEnd').value;
+getLocation(baseURLweather, newLat, newLong, newStartDate, newEndDate, apiKeyWeather)
+
+.then(
+    updateUI()
+  )
+}
+const getLocation = async (baseURLweather, newLat, newLong, newStartDate, newEndDate, apiKeyWeather)=>{
+
+  const res = await fetch('https://api.weatherbit.io/v2.0/history/daily?'+'&lat='+ newLat +'&long='+ newLong +'&start_date='+ newStartDate +'&end_date='+ newEndDate +'&key='+apiKeyWeather)
+  try {
+
+    const dataWeather = await res.json();
+    console.log(dataWeather);
+    return dataWeather;
+  }  catch(error) {
+    console.log("error", error);
+    // appropriately handle the error
+  }
+}
+
+/*End of weather API function */ 
+
 
 export { performAction }
+export { performActionWeather }
