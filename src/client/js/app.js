@@ -2,7 +2,7 @@
 let baseURL = 'http://api.geonames.org/searchJSON?q='
 const apiKey = '&username=ch3b3ts';
 /* Global Variables for Weatherbit*/
-let baseURLweather = 'https://api.weatherbit.io/v2.0/history/daily?'
+let baseURLweather = 'https://api.weatherbit.io/v2.0/forecast/daily?'
 const apiKeyWeather = 'b6622d7bbf6843c1b92e82c0c44cc8a9';
 
 
@@ -83,21 +83,23 @@ const getCity = async (baseURL, city, key)=>{
 function performActionWeather(e){
   const newLat =  document.getElementById('lat').value;
   const newLong =  document.getElementById('long').value;
-  const newStartDate =  document.getElementById('date').value;
-  const newEndDate =  document.getElementById('dateEnd').value;
-getLocation(baseURLweather, newLat, newLong, newStartDate, newEndDate, apiKeyWeather)
+getLocation(baseURLweather, newLat, newLong, apiKeyWeather)
 
 .then(
     updateUI()
   )
 }
-const getLocation = async (baseURLweather, newLat, newLong, newStartDate, newEndDate, apiKeyWeather)=>{
+const getLocation = async (baseURLweather, newLat, newLong, apiKeyWeather)=>{
 
-  const res = await fetch('https://api.weatherbit.io/v2.0/history/daily?'+'&lat='+ newLat +'&long='+ newLong +'&start_date='+ newStartDate +'&end_date='+ newEndDate +'&key='+apiKeyWeather)
+  const res = await fetch('https://api.weatherbit.io/v2.0/forecast/daily?'+'lat='+ newLat +'&lon='+ newLong +'&key='+apiKeyWeather)
   try {
 
     const dataWeather = await res.json();
     console.log(dataWeather);
+    console.log(newLat);
+
+
+
     return dataWeather;
   }  catch(error) {
     console.log("error", error);
