@@ -8,11 +8,9 @@ const apiKeyWeather = 'b6622d7bbf6843c1b92e82c0c44cc8a9';
 
 function performAction(e){
 const newCity =  document.getElementById('city').value;
-getCity(baseURL,newCity, apiKey)
+getCity(baseURL,newCity, apiKey);
 
-.then(
-    updateUI()
-  )
+
 }
 const getCity = async (baseURL, city, key)=>{
 
@@ -83,11 +81,8 @@ const getCity = async (baseURL, city, key)=>{
 function performActionWeather(e){
   const newLat =  document.getElementById('lat').value;
   const newLong =  document.getElementById('long').value;
-getLocation(baseURLweather, newLat, newLong, apiKeyWeather)
+getLocation(baseURLweather, newLat, newLong, apiKeyWeather);
 
-.then(
-    updateUI()
-  )
 }
 const getLocation = async (baseURLweather, newLat, newLong, apiKeyWeather)=>{
 
@@ -95,8 +90,9 @@ const getLocation = async (baseURLweather, newLat, newLong, apiKeyWeather)=>{
   try {
 
     const dataWeather = await res.json();
-    console.log(dataWeather);
     console.log(newLat);
+    console.log(newLong);
+    console.log(dataWeather);
 
 
 
@@ -107,8 +103,24 @@ const getLocation = async (baseURLweather, newLat, newLong, apiKeyWeather)=>{
   }
 }
 
+async function init(){
+  
+    performAction();
+
+    function getWeather() {
+      setTimeout(() => {
+        performActionWeather();
+      }, 3000);
+    }
+    getWeather();
+  
+  
+}
+
 /*End of weather API function */ 
 
 
 export { performAction }
 export { performActionWeather }
+export { init }
+
