@@ -27,8 +27,8 @@ const getCity = async (baseURL, city, key)=>{
 
     //This is getting the value from the input box for the end date
     const vacaDateEnd =  document.getElementById('dateEnd').value;
-    console.log(vacaDate);
-    console.log(vacaDateEnd);
+    
+    
 
 
     // Create a new date instance dynamically with JS
@@ -45,12 +45,20 @@ const getCity = async (baseURL, city, key)=>{
    console.log(parseDate(newDate));
    console.log(parseDate(vacaDate));
 
-   // To calculate the time difference of two dates 
+   // To calculate the time difference of current date and vacation date
    var Difference_In_Time = parseDate(vacaDate).getTime() - parseDate(newDate).getTime(); 
+
+    // To calculate the time difference of vacation date start and vacation date end
+    var Difference_In_Vacation = parseDate(vacaDateEnd).getTime() - parseDate(vacaDate).getTime(); 
   
    // To calculate the no. of days between two dates 
    var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
    console.log(Difference_In_Days);
+
+   // To calculate the no. of days between two dates 
+   var Difference_In_Vacation_In_Days = Difference_In_Vacation / (1000 * 3600 * 24);
+   console.log(Difference_In_Vacation_In_Days);
+
 
     //This is getting the country name from the data 
     let country = data.geonames[0].countryName;
@@ -71,6 +79,11 @@ const getCity = async (baseURL, city, key)=>{
     const daysAway = Difference_In_Days;
     //This is adding the input to the results div
     document.getElementById('daysAway').innerHTML = daysAway + ' days!';
+
+    //This is getting the number of days until total for the vacation
+    const daysTotal = Difference_In_Vacation_In_Days;
+    //This is adding the input to the results div
+    document.getElementById('tripLength').innerHTML = daysTotal + ' days.';
 
     //Fetching the weather API
     const weatherInfo = fetch('https://api.weatherbit.io/v2.0/forecast/daily?'+'lat='+ lat +'&lon='+ long +'&key='+apiKeyWeather).then( (weatherResponse) => {
