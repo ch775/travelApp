@@ -70,19 +70,24 @@ const getCity = async (baseURL, city, key)=>{
     document.getElementById('daysAway').innerHTML = daysAway + ' days!';
 
     //Fetching the weather API
-    const weatherInfo = fetch('https://api.weatherbit.io/v2.0/forecast/daily?'+'lat='+ lat +'&lon='+ long +'&key='+apiKeyWeather).then( weatherResponse => {
-       return weatherResponse.json();
-       
-  
-       
+    const weatherInfo = fetch('https://api.weatherbit.io/v2.0/forecast/daily?'+'lat='+ lat +'&lon='+ long +'&key='+apiKeyWeather).then( (weatherResponse) => {
+       return weatherResponse.json(); 
+    })
+    .then((dataWeather) => {
+      console.log(dataWeather);
+      console.log(dataWeather.data[15].weather.description);
+      //Defining weather Description
+      const weatherDescription = dataWeather.data[15].weather.description;
+       //Defining weather high temp
+       const highTemp = dataWeather.data[15].high_temp;
+       //Defining weather low temp
+       const lowTemp = dataWeather.data[15].low_temp;
+
+       //Adding to the weather div
+      document.getElementById('weather').innerHTML = weatherDescription + '<br/>High Temp:'+ highTemp + ' Low Temp:' + lowTemp;
     });
 
     console.log(weatherInfo);
-    
-   
-    //const highTemp = 
-    //This is adding the input to the results div
-    //document.getElementById('weather').innerHTML = '<h3>High:</h3>' + 
     //End of weather API
 
 
