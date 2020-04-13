@@ -4,6 +4,9 @@ const apiKey = '&username=ch3b3ts';
 /* Global Variables for Weatherbit*/
 let baseURLweather = 'https://api.weatherbit.io/v2.0/forecast/daily?'
 const apiKeyWeather = 'b6622d7bbf6843c1b92e82c0c44cc8a9';
+/* Global Variables for Pixabay*/
+let baseURLimages = 'https://cors-anywhere.herokuapp.com/https://pixabay.com/api/'
+const apiKeyImages = '?key=16027588-fcf7b42ae8f04c207e0c5e1d0';
 
 
 function performAction(e){
@@ -69,6 +72,43 @@ const getCity = async (baseURL, city, key)=>{
     //This is adding the input to the results div
     document.getElementById('daysAway').innerHTML = daysAway + ' days!';
 
+    //Fetching the weather API
+    const weatherInfo = fetch('https://api.weatherbit.io/v2.0/forecast/daily?'+'lat='+ lat +'&lon='+ long +'&key='+apiKeyWeather).then( (weatherResponse) => {
+       return weatherResponse.json(); 
+    })
+    .then((dataWeather) => {
+      console.log(dataWeather);
+      console.log(dataWeather.data[15].weather.description);
+      //Defining weather Description
+      const weatherDescription = dataWeather.data[15].weather.description;
+       //Defining weather high temp
+       const highTemp = dataWeather.data[15].high_temp;
+       //Defining weather low temp
+       const lowTemp = dataWeather.data[15].low_temp;
+
+       //Adding to the weather div
+      document.getElementById('weather').innerHTML = weatherDescription + '<br/>High Temp:'+ highTemp + ' Low Temp:' + lowTemp;
+
+           //Fetching the image API
+           const imageInfo = fetch('https://cors-anywhere.herokuapp.com/https://pixabay.com/api/'+ apiKeyImages + '&q=' + city + '+city' + '&image_type=photo')
+           .then( (imageResponse) => {
+           return imageResponse.json(); 
+           })
+           .then((dataImage) => {
+           console.log(dataImage.hits[0].largeImageURL);
+           //Defining image src
+           const imageSrc = dataImage.hits[0].largeImageURL;
+           //Adding src to image div
+           document.getElementById('imgDiv').innerHTML = '<img class="imgClass" src="' + imageSrc + '" />';
+          });
+
+          console.log(imageInfo);
+          //End of image API
+    });
+
+    console.log(weatherInfo);
+    //End of weather API
+
 
     return data;
   }  catch(error) {
@@ -77,50 +117,7 @@ const getCity = async (baseURL, city, key)=>{
   }
 }
 
-/*This is the function for the Weatherbit API*/ 
-function performActionWeather(e){
-  const newLat =  document.getElementById('lat').value;
-  const newLong =  document.getElementById('long').value;
-getLocation(baseURLweather, newLat, newLong, apiKeyWeather);
-
-}
-const getLocation = async (baseURLweather, newLat, newLong, apiKeyWeather)=>{
-
-  const res = await fetch('https://api.weatherbit.io/v2.0/forecast/daily?'+'lat='+ newLat +'&lon='+ newLong +'&key='+apiKeyWeather)
-  try {
-
-    const dataWeather = await res.json();
-    console.log(newLat);
-    console.log(newLong);
-    console.log(dataWeather);
-
-
-
-    return dataWeather;
-  }  catch(error) {
-    console.log("error", error);
-    // appropriately handle the error
-  }
-}
-
-async function init(){
-  
-    performAction();
-
-    function getWeather() {
-      setTimeout(() => {
-        performActionWeather();
-      }, 3000);
-    }
-    getWeather();
-  
-  
-}
-
-/*End of weather API function */ 
 
 
 export { performAction }
-export { performActionWeather }
-export { init }
 
