@@ -69,6 +69,22 @@ const getCity = async (baseURL, city, key)=>{
     //This is adding the input to the results div
     document.getElementById('daysAway').innerHTML = daysAway + ' days!';
 
+    //Fetching the weather API
+    const weatherInfo = fetch('https://api.weatherbit.io/v2.0/forecast/daily?'+'lat='+ lat +'&lon='+ long +'&key='+apiKeyWeather).then( weatherResponse => {
+       return weatherResponse.json();
+       
+  
+       
+    });
+
+    console.log(weatherInfo);
+    
+   
+    //const highTemp = 
+    //This is adding the input to the results div
+    //document.getElementById('weather').innerHTML = '<h3>High:</h3>' + 
+    //End of weather API
+
 
     return data;
   }  catch(error) {
@@ -77,50 +93,7 @@ const getCity = async (baseURL, city, key)=>{
   }
 }
 
-/*This is the function for the Weatherbit API*/ 
-function performActionWeather(e){
-  const newLat =  document.getElementById('lat').value;
-  const newLong =  document.getElementById('long').value;
-getLocation(baseURLweather, newLat, newLong, apiKeyWeather);
-
-}
-const getLocation = async (baseURLweather, newLat, newLong, apiKeyWeather)=>{
-
-  const res = await fetch('https://api.weatherbit.io/v2.0/forecast/daily?'+'lat='+ newLat +'&lon='+ newLong +'&key='+apiKeyWeather)
-  try {
-
-    const dataWeather = await res.json();
-    console.log(newLat);
-    console.log(newLong);
-    console.log(dataWeather);
-
-
-
-    return dataWeather;
-  }  catch(error) {
-    console.log("error", error);
-    // appropriately handle the error
-  }
-}
-
-async function init(){
-  
-    performAction();
-
-    function getWeather() {
-      setTimeout(() => {
-        performActionWeather();
-      }, 3000);
-    }
-    getWeather();
-  
-  
-}
-
-/*End of weather API function */ 
 
 
 export { performAction }
-export { performActionWeather }
-export { init }
 
