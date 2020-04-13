@@ -27,8 +27,8 @@ const getCity = async (baseURL, city, key)=>{
 
     //This is getting the value from the input box for the end date
     const vacaDateEnd =  document.getElementById('dateEnd').value;
-    console.log(vacaDate);
-    console.log(vacaDateEnd);
+    
+    
 
 
     // Create a new date instance dynamically with JS
