@@ -24,45 +24,43 @@
                     </div>
                 </div>
                 <div class ="holder">
-                    <!--<label for="feelings">How are you feeling today?</label>
-                    <textarea class= "myInput" id="feelings" placeholder="Enter your feelings here" rows="9" cols="50"></textarea>-->
-                    <a href="#jumpHere">
                       <button id="generate" type = "submit"> Get My Trip Info! </button>
-                    </a>
                 </div>
                 <div class ="holder entry">
-                 <!-- <img class="warmTemp" src="../media/warmTemp.png" alt="Warm tempurature icon">-->
+                    
                     <div id = "entryHolder">
-                       <div id="jumpHere" class = "title">Information About My Destination:</div>
+                        <h2 class = "title">Your trip to <span id = "country"></span> is <span id = "daysAway"></span></h2>
                        <!--We want to get latitude, longitude, country-->
-                           <div class="infoHolder">
+                           <!--<div class="infoHolder">
                                <h2>Country:</h2>
                                <div id = "country"></div>
-                           </div>
-                           <div class="infoHolder">
-                                <h2>Latitude:</h2>
-                                <div id = "lat"></div>
-                           </div>
-                           <div class="infoHolder">
-                                <h2>Longitude:</h2>
-                                <div id = "long"></div>
-                           </div>
-                           <div class="infoHolder">
-                                <h2>Days Until Your Trip:</h2>
-                                <div id = "daysAway"></div>   
-                           </div>
-                           <div class="infoHolder">
-                                <h2>Trip Length:</h2>
-                                <div id = "tripLength"></div>   
-                           </div>
-                           <div class="infoHolder">
-                            <h2>Typical Weather:</h2>
-                            <div id = "weather"></div>   
-                          </div>
-                          <!--This is the image div-->
-                          <div id="imgDiv">
-
-                          </div>
+                           </div>-->
+                           <!--This is the image div-->
+                           <div class="sideBySide">
+                                <div id="imgDiv"></div>
+                                <div>
+                                      <div class="infoHolder">
+                                                You will be there for 
+                                                <div id = "tripLength"></div>   
+                                        </div>
+                                        <div class="infoHolder weather">
+                                            <span><strong>Typical Weather: </strong></span>
+                                            <div id = "weather"></div>   
+                                        </div>
+                                        <div class="infoHolder">
+                                            <span><strong>Latitude: </strong></span>
+                                                <div id = "lat"></div>
+                                        </div>
+                                        <div class="infoHolder">
+                                            <span><strong>Logitude: </strong></span>
+                                                <div id = "long"></div>
+                                        </div>
+                                        <!--<div class="infoHolder">
+                                                <h2>Days Until Your Trip:</h2>
+                                                <div id = "daysAway"></div>   
+                                        </div>-->
+                                </div>
+                        </div>
                     </div>
                 </div>
             </div>

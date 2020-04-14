@@ -78,7 +78,7 @@ const getCity = async (baseURL, city, key)=>{
     //This is getting the number of days until the vacation
     const daysAway = Difference_In_Days;
     //This is adding the input to the results div
-    document.getElementById('daysAway').innerHTML = daysAway + ' days!';
+    document.getElementById('daysAway').innerHTML = daysAway + ' days away!';
 
     //This is getting the number of days until total for the vacation
     const daysTotal = Difference_In_Vacation_In_Days;
@@ -100,7 +100,7 @@ const getCity = async (baseURL, city, key)=>{
        const lowTemp = dataWeather.data[15].low_temp;
 
        //Adding to the weather div
-      document.getElementById('weather').innerHTML = weatherDescription + '<br/>High Temp:'+ highTemp + ' Low Temp:' + lowTemp;
+      document.getElementById('weather').innerHTML = weatherDescription + '<br/>High Temp:'+ highTemp + '<br/>Low Temp:' + lowTemp;
 
            //Fetching the image API
            const imageInfo = fetch('https://cors-anywhere.herokuapp.com/https://pixabay.com/api/'+ apiKeyImages + '&q=' + city + '+city' + '&image_type=photo')
