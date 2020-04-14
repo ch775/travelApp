@@ -113,7 +113,17 @@ const getCity = async (baseURL, city, key)=>{
            const imageSrc = dataImage.hits[0].largeImageURL;
            //Adding src to image div
            document.getElementById('imgDiv').innerHTML = '<img class="imgClass" src="' + imageSrc + '" />';
+          }).catch((err) => {
+              console.log("There is no image");
+              //Defining image src
+              const imageSrcOops = "https://pixabay.com/get/57e4d1474355a914f6da8c7dda793678153dd9e05b596c4870277ddd974ec751bc_1280.jpg";
+              //Adding src to image div
+              document.getElementById('imgDiv').innerHTML = '<img class="imgClass" src="' + imageSrcOops + '" />';
+
           });
+            
+          
+         
 
           console.log(imageInfo);
           //End of image API
