@@ -6,7 +6,7 @@ let baseURLweather = 'https://api.weatherbit.io/v2.0/forecast/daily?'
 const apiKeyWeather = 'b6622d7bbf6843c1b92e82c0c44cc8a9';
 /* Global Variables for Pixabay*/
 let baseURLimages = 'https://cors-anywhere.herokuapp.com/https://pixabay.com/api/'
-const apiKeyImages = '?key=16027588-fcf7b42ae8f04c207e0c5e1d0';
+const apiKeyImages = '&key=16027588-fcf7b42ae8f04c207e0c5e1d0';
 
 
 function performAction(e){
@@ -103,7 +103,7 @@ const getCity = async (baseURL, city, key)=>{
       document.getElementById('weather').innerHTML = weatherDescription + '<br/>High Temp: '+ highTemp + '<br/>Low Temp: ' + lowTemp;
 
            //Fetching the image API
-           const imageInfo = fetch('https://cors-anywhere.herokuapp.com/https://pixabay.com/api/'+ apiKeyImages + '&q=' + city + '+city' + '&image_type=photo')
+           const imageInfo = fetch('https://cors-anywhere.herokuapp.com/https://pixabay.com/api/?safesearch'+ apiKeyImages + '&q=' + city + '+city' + '&image_type=photo')
            .then( (imageResponse) => {
            return imageResponse.json(); 
            })
