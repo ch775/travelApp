@@ -47,8 +47,11 @@ html {
 .holder {
     margin-top: 1.5em; 
     display: flex;
-    flex-direction: row;
     padding: 10px;
+}
+
+#topHolder.holder {
+    flex-direction: row;
 }
 
 #app {
@@ -105,8 +108,15 @@ h2.title {
     justify-content: center;
 }
 
-@media only screen and (max-width: 800px){
+.travel {
+    max-width: 300px;
+}
+
+@media screen and (max-width: 800px){
     #app {
         width: 100%;
+    }
+    #topHolder.holder {
+        flex-direction: column;
     }
 }

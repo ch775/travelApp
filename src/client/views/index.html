@@ -8,8 +8,9 @@
         <body>
             <div id = "app">
                 <h1 class ="holder headline">Travel Planner</h1>
+                <img class="travel" src="/src/client/media/travel.png"/>
                 <h2>Tell us about your trip!</h2>
-                <div class ="holder">
+                <div id ="topHolder" class ="holder">
                     <div class="tripInput">
                         <label for="city">Destination:</label>
                         <input type="text" id="city" placeholder="enter city name here">
@@ -23,9 +24,8 @@
                         <input type="date" id="dateEnd">
                     </div>
                 </div>
-                <div class ="holder">
-                      <button id="generate" type = "submit"> Get My Trip Info! </button>
-                </div>
+                <button id="generate" type = "submit"> Get My Trip Info! </button>
+    
                 <div class ="holder entry">
                     
                     <div id = "entryHolder">
