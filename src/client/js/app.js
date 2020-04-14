@@ -100,7 +100,7 @@ const getCity = async (baseURL, city, key)=>{
        const lowTemp = dataWeather.data[15].low_temp;
 
        //Adding to the weather div
-      document.getElementById('weather').innerHTML = weatherDescription + '<br/>High Temp:'+ highTemp + '<br/>Low Temp:' + lowTemp;
+      document.getElementById('weather').innerHTML = weatherDescription + '<br/>High Temp: '+ highTemp + '<br/>Low Temp: ' + lowTemp;
 
            //Fetching the image API
            const imageInfo = fetch('https://cors-anywhere.herokuapp.com/https://pixabay.com/api/'+ apiKeyImages + '&q=' + city + '+city' + '&image_type=photo')
