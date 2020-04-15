@@ -14,7 +14,7 @@ module.exports = {
     mode: 'production',
     output: {
         libraryTarget: 'var',
-        library: 'Client'
+        library: 'Client',
     },
     module: {
         rules: [
@@ -24,17 +24,9 @@ module.exports = {
                 loader: "babel-loader"
             },
             {
-                  test: /\.(png|svg|jpg|gif)$/,
-                  use: [
-                   'file-loader',
-              ],
-              },
-              
-              {
-                test:/\.html$/,
-                use: [
-                  'html-loader'
-                ]
+                // Loads images into CSS and Javascript files
+                test: /\.png$/,
+                use: [{loader: "url-loader"}]
               },
             {
                 test: /\.scss$/,
