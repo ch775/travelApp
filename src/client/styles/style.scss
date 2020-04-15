@@ -120,7 +120,7 @@ h2.title {
         background-repeat: no-repeat;
 } */
 
-@media screen and (max-width: 800px){
+@media only screen and (max-width: 800px){
     #app {
         width: 100%;
     }
