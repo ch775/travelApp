@@ -2,6 +2,7 @@
 $background-color: #EBECF0;
 $white: #fff;
 $main-color: #009dff;
+$hover-color: #7FCEFF;
 
 
 html {
@@ -42,6 +43,9 @@ html {
     border-radius: 10px;
     border-style: none;
     font-family: 'Baloo Tamma 2', cursive;
+    &:hover {
+        background-color: $hover-color;
+      }
 }
 
 .holder {
@@ -111,14 +115,6 @@ h2.title {
 .travel {
     max-width: 300px;
 }
-
-/*#imgTravel {
-        background: url(../media/travel.png);
-        width: 300px;
-        height: 100px;
-        background-size: 100% auto;
-        background-repeat: no-repeat;
-} */
 
 @media only screen and (max-width: 800px){
     #app {
