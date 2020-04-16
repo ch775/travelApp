@@ -116,7 +116,7 @@ const getCity = async (baseURL, city, key)=>{
           }).catch((err) => {
               console.log("There is no image");
               //Defining image src
-              const imageSrcOops = "./src/client/media/opps.jpg";
+              const imageSrcOops = "/src/client/media/opps.png";
               //Adding src to image div
               document.getElementById('imgDiv').innerHTML = '<img class="imgClass" src="' + imageSrcOops + '" />';
 
