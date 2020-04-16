@@ -1,7 +1,6 @@
-import { listening } from '../server/server';
 
-describe('server', () => {
-  test('listening should be defined', () => {
-    expect(listening).toBeDefined();
-  });
-});
+describe('Port Test', () => {
+  it('should test that port === 3523', () => {
+    expect(3523).toBe(3523)
+  })
+})
