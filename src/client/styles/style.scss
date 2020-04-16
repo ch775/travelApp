@@ -1,5 +1,30 @@
+/*Main colors */ 
+$background-color: #EBECF0;
+$white: #fff;
+$main-color: #009dff;
+$hover-color: #7FCEFF;
+
+
 html {
-    background-color: #d6eef8;
+    background-color: $background-color;
+    font-family: 'Baloo Tamma 2', cursive;
+}
+
+.headline {
+    font-size: 40px;
+    font-weight: 200;
+    margin: 20px 0;
+}
+
+.tripInput {
+    max-width: 160px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+#entryHolder {
+    display: none;
 }
 
 .entry {
@@ -7,41 +32,36 @@ html {
     flex-direction: row;
 }
 
-.warmTemp {
-    height: 60%;
-    width: auto;
-    margin-top: 2em;
-}
-
-.myInput { 
-    max-width: 34em;
-}
-
 #generate {
-    background-color: gray;
+    background-color: $main-color;
     color: white;
-    max-width: 15em;
-    margin-top: 2em;
-    padding: 1em;
-    font-size: 1.5em;
-    font-family: 'Titillium Web';
-}
-
-.feel {
-    display: flex;
-    flex-direction: column;
+    max-width: 14em;
+    padding: 0.5em 1em;
+    font-size: 1em;
+    font-weight: 100;
+    text-transform: uppercase;
+    border-radius: 10px;
+    border-style: none;
+    font-family: 'Baloo Tamma 2', cursive;
+    &:hover {
+        background-color: $hover-color;
+      }
 }
 
 .holder {
-    margin-top: 2em; 
+    margin-top: 1.5em; 
     display: flex;
-    flex-direction: column;
+    padding: 10px;
+}
+
+#topHolder.holder {
+    flex-direction: row;
 }
 
 #app {
-    width: 70%;
-    margin: 0 auto;
-    background-color: #f7f7f7;
+    width: 85%;
+    margin: 40px auto;
+    background-color: $white;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -54,8 +74,12 @@ html {
     align-items: center;
 }
 
-#temp, #date, #content, #name{
+#city, #date, #dateEnd {
     padding: 0.5em;
+}
+
+#lat, #long, #tripLength {
+    padding-left: 5px;
 }
 
 h2 {
@@ -63,21 +87,40 @@ h2 {
     padding-right: 10px;
 }
 
-.weatherTop {
-    margin-bottom: 2em;
+h2.title {
+    text-align: center;
 }
 
-html {
-    font-family: 'Titillium Web';
+#imgDiv {
+    width: 50%;
 }
 
 .imgClass {
-    width: 80%;
+    width: 100%;
     height: auto;
+}
+
+.weather {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.sideBySide {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.travel {
+    max-width: 300px;
 }
 
 @media only screen and (max-width: 800px){
     #app {
         width: 100%;
+    }
+    #topHolder.holder {
+        flex-direction: column;
     }
 }

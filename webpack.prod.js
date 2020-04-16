@@ -14,7 +14,7 @@ module.exports = {
     mode: 'production',
     output: {
         libraryTarget: 'var',
-        library: 'Client'
+        library: 'Client',
     },
     module: {
         rules: [
@@ -23,6 +23,11 @@ module.exports = {
                 exclude: /node_modules/,
                 loader: "babel-loader"
             },
+            {
+                // Loads images into CSS and Javascript files
+                test: /\.png$/,
+                use: [{loader: "url-loader"}]
+              },
             {
                 test: /\.scss$/,
                 use: [ MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader' ]

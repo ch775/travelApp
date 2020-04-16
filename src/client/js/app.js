@@ -6,7 +6,7 @@ let baseURLweather = 'https://api.weatherbit.io/v2.0/forecast/daily?'
 const apiKeyWeather = 'b6622d7bbf6843c1b92e82c0c44cc8a9';
 /* Global Variables for Pixabay*/
 let baseURLimages = 'https://cors-anywhere.herokuapp.com/https://pixabay.com/api/'
-const apiKeyImages = '?key=16027588-fcf7b42ae8f04c207e0c5e1d0';
+const apiKeyImages = '&key=16027588-fcf7b42ae8f04c207e0c5e1d0';
 
 
 function performAction(e){
@@ -78,7 +78,7 @@ const getCity = async (baseURL, city, key)=>{
     //This is getting the number of days until the vacation
     const daysAway = Difference_In_Days;
     //This is adding the input to the results div
-    document.getElementById('daysAway').innerHTML = daysAway + ' days!';
+    document.getElementById('daysAway').innerHTML = daysAway + ' days away!';
 
     //This is getting the number of days until total for the vacation
     const daysTotal = Difference_In_Vacation_In_Days;
@@ -100,10 +100,10 @@ const getCity = async (baseURL, city, key)=>{
        const lowTemp = dataWeather.data[15].low_temp;
 
        //Adding to the weather div
-      document.getElementById('weather').innerHTML = weatherDescription + '<br/>High Temp:'+ highTemp + ' Low Temp:' + lowTemp;
+      document.getElementById('weather').innerHTML = weatherDescription + '<br/>High Temp: '+ highTemp + '<br/>Low Temp: ' + lowTemp;
 
            //Fetching the image API
-           const imageInfo = fetch('https://cors-anywhere.herokuapp.com/https://pixabay.com/api/'+ apiKeyImages + '&q=' + city + '+city' + '&image_type=photo')
+           const imageInfo = fetch('https://cors-anywhere.herokuapp.com/https://pixabay.com/api/?safesearch'+ apiKeyImages + '&q=' + city + '+city' + '&image_type=photo')
            .then( (imageResponse) => {
            return imageResponse.json(); 
            })
@@ -113,7 +113,17 @@ const getCity = async (baseURL, city, key)=>{
            const imageSrc = dataImage.hits[0].largeImageURL;
            //Adding src to image div
            document.getElementById('imgDiv').innerHTML = '<img class="imgClass" src="' + imageSrc + '" />';
+          }).catch((err) => {
+              console.log("There is no image");
+              //Defining image src
+              const imageSrcOops = "/src/client/media/opps.png";
+              //Adding src to image div
+              document.getElementById('imgDiv').innerHTML = '<img class="imgClass" src="' + imageSrcOops + '" />';
+
           });
+            
+          
+         
 
           console.log(imageInfo);
           //End of image API

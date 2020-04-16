@@ -2,62 +2,65 @@
     <html>
         <head>
             <meta charset="UTF-8">
-            <title>Travel App</title>
-            
-            <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet">
+            <title>Travel Planner</title>
+            <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@400;500;600;700&display=swap" rel="stylesheet">
         </head>
         <body>
             <div id = "app">
-                <h1 class ="holder headline">Travel App</h1>
-                <!--<img class="weatherTop" src="../media/weather.png" alt="Weather doodles of sun, snow and rain">-->
-                <div class ="holder">
-                    <label for="city">Where Would You Like to Go?</label>
-                    <input type="text" id="city" placeholder="enter city name here">
-                    <label >When Will You Start Your Trip?</label>
-                    <input type="date" id="date">
-                    <label >When Will You End Your Trip?</label>
-                    <input type="date" id="dateEnd">
+                <h1 class ="holder headline">Travel Planner</h1>
+                <img class="travel" src="/src/client/media/travel.png"/>
+                <h2>Tell us about your trip!</h2>
+                <div id ="topHolder" class ="holder">
+                    <div class="tripInput">
+                        <label for="city">Destination:</label>
+                        <input type="text" id="city" placeholder="enter city name here">
+                    </div>
+                    <div class="tripInput">
+                        <label >Arrival Date:</label>
+                        <input type="date" id="date">
+                    </div>
+                    <div class="tripInput">
+                        <label >Departure Date:</label>
+                        <input type="date" id="dateEnd">
+                    </div>
                 </div>
-                <div class ="holder feel">
-                    <!--<label for="feelings">How are you feeling today?</label>
-                    <textarea class= "myInput" id="feelings" placeholder="Enter your feelings here" rows="9" cols="50"></textarea>-->
-                    <a href="#jumpHere">
-                      <button id="generate" type = "submit"> Get My Travel Info! </button>
-                    </a>
-                </div>
+                <button id="generate" type = "submit"> Get My Trip Info! </button>
+    
                 <div class ="holder entry">
-                 <!-- <img class="warmTemp" src="../media/warmTemp.png" alt="Warm tempurature icon">-->
+                    
                     <div id = "entryHolder">
-                       <div id="jumpHere" class = "title">Information About My Destination:</div>
+                        <h2 class = "title">Your trip to <span id = "country"></span> is <span id = "daysAway"></span></h2>
                        <!--We want to get latitude, longitude, country-->
-                           <div class="infoHolder">
+                           <!--<div class="infoHolder">
                                <h2>Country:</h2>
                                <div id = "country"></div>
-                           </div>
-                           <div class="infoHolder">
-                                <h2>Latitude:</h2>
-                                <div id = "lat"></div>
-                           </div>
-                           <div class="infoHolder">
-                                <h2>Longitude:</h2>
-                                <div id = "long"></div>
-                           </div>
-                           <div class="infoHolder">
-                                <h2>Days Until Your Trip:</h2>
-                                <div id = "daysAway"></div>   
-                           </div>
-                           <div class="infoHolder">
-                                <h2>Trip Length:</h2>
-                                <div id = "tripLength"></div>   
-                           </div>
-                           <div class="infoHolder">
-                            <h2>Typical Weather:</h2>
-                            <div id = "weather"></div>   
-                          </div>
-                          <!--This is the image div-->
-                          <div id="imgDiv">
-
-                          </div>
+                           </div>-->
+                           <!--This is the image div-->
+                           <div class="sideBySide">
+                                <div id="imgDiv"></div>
+                                <div>
+                                      <div class="infoHolder">
+                                                You will be there for  
+                                                <div id = "tripLength"></div>   
+                                        </div>
+                                        <div class="infoHolder weather">
+                                            <span><strong>Typical Weather: </strong></span>
+                                            <div id = "weather"></div>   
+                                        </div>
+                                        <div class="infoHolder">
+                                            <span><strong>Latitude: </strong></span>
+                                                <div id = "lat"></div>
+                                        </div>
+                                        <div class="infoHolder">
+                                            <span><strong>Logitude: </strong></span>
+                                                <div id = "long"></div>
+                                        </div>
+                                        <!--<div class="infoHolder">
+                                                <h2>Days Until Your Trip:</h2>
+                                                <div id = "daysAway"></div>   
+                                        </div>-->
+                                </div>
+                        </div>
                     </div>
                 </div>
             </div>
